@@ -24,6 +24,7 @@ builder.Services.AddCors(options =>
         });
 });
 var googleSettings = builder.Configuration.GetSection("Google");
+builder.Services.AddHttpContextAccessor();
 
 builder.Services.AddAuthentication("Bearer")
     .AddJwtBearer("Bearer", options =>
@@ -73,6 +74,7 @@ using (var scope = app.Services.CreateScope())
     var db = scope.ServiceProvider.GetRequiredService<AppDbContext>();
     db.Database.Migrate();
 }
+
 app.UseAuthentication();
 app.UseAuthorization();
 // app.UseHttpsRedirection();

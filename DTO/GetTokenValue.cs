@@ -1,0 +1,1 @@
+public record GetTokenValue(string Email, string Id, string Role);
