@@ -1,0 +1,1 @@
+public record GetDashBoardValues(string Name, int Count);
