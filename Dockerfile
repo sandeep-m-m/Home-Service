@@ -10,8 +10,8 @@ WORKDIR /app
 COPY --from=build /app/publish .
 
 # Make app listen on port 5054
-ENV ASPNETCORE_URLS=http://+:5054
+ENV ASPNETCORE_URLS=http://+:5111
 ENV ASPNETCORE_ENVIRONMENT=Production
-EXPOSE 5054
+EXPOSE 5112
 
-ENTRYPOINT ["dotnet", "Auth-service.dll"]
+ENTRYPOINT ["dotnet", "Home-service.dll"]
