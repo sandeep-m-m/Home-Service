@@ -1,8 +1,6 @@
-
-
 using Microsoft.EntityFrameworkCore;
 
-namespace AuthService.Data
+namespace HomeService.Data
 {
     public class AppDbContext : DbContext
     {
@@ -10,6 +8,16 @@ namespace AuthService.Data
             : base(options)
         {
         }
-        // public DbSet<UserDB> UserAuth { get; set; }
+
+        public DbSet<SampleData> Data { get; set; }
+
+        protected override void OnModelCreating(ModelBuilder modelBuilder)
+        {
+            modelBuilder.Entity<SampleData>()
+                .Property(x => x.Id)
+                .ValueGeneratedOnAdd();
+
+            base.OnModelCreating(modelBuilder);
+        }
     }
 }

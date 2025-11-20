@@ -1,8 +1,8 @@
-using AuthService.Data;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.OpenApi.Models;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.IdentityModel.Tokens;
+using HomeService.Data;
 
 var builder = WebApplication.CreateBuilder(args);
 
