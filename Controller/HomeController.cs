@@ -9,18 +9,23 @@ using Microsoft.IdentityModel.Tokens;
 public class HomeController : Controller
 {
     private readonly IHttpContextAccessor _context;
+    private readonly IKafkaProducerService _kafka;
 
-    public HomeController(IHttpContextAccessor context)
+
+    public HomeController(IHttpContextAccessor context,IKafkaProducerService kafka)
     {
         _context = context;
+        _kafka = kafka;
     }
-    [Authorize]
+    // [Authorize]
     [HttpGet]
     public IActionResult Index()
     {
-        var name = getTokenValue();
-        Console.WriteLine("name" + name);
-        return Ok(name);
+        // var name = getTokenValue();
+        // Console.WriteLine("name" + name);
+        _kafka.SendMessageAsync("hii");
+
+        return Ok();
     }
 
     #region  private helpers

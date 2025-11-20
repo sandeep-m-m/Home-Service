@@ -25,7 +25,7 @@ builder.Services.AddCors(options =>
 });
 var googleSettings = builder.Configuration.GetSection("Google");
 builder.Services.AddHttpContextAccessor();
-
+builder.Services.AddSingleton<IKafkaProducerService, KafkaProducerService>();
 builder.Services.AddAuthentication("Bearer")
     .AddJwtBearer("Bearer", options =>
     {
