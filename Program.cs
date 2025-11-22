@@ -43,13 +43,13 @@ builder.Services.AddAuthentication("Bearer")
     });
 builder.Services.AddSingleton<JwtService>();
 builder.Services.AddAuthorization();
-
+builder.WebHost.UseUrls("http://0.0.0.0:5111");
 
 builder.Services.AddSwaggerGen(c =>
 {
     c.SwaggerDoc("v1", new OpenApiInfo
     {
-        Title = "Auth Service API",
+        Title = "Home Service API",
         Version = "v1",
         Description = "Simple API for authentication service"
     });
