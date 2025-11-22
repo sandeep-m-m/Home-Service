@@ -27,7 +27,8 @@ public class DataController : Controller
             Genre = req.Genre,
             Name = req.Name,
             Description = req.Description,
-            Link = req.Link
+            Link = req.Link,
+            Price = req.Price
         };
         _db.Data.Add(newData);
         _db.SaveChanges();

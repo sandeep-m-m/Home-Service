@@ -1,4 +1,5 @@
 using Microsoft.EntityFrameworkCore;
+using HomeService.Models;
 
 namespace HomeService.Data
 {
@@ -10,12 +11,18 @@ namespace HomeService.Data
         }
 
         public DbSet<SampleData> Data { get; set; }
+        public DbSet<UserInteraction> UserInteractions { get; set; }
+        public DbSet<UserPurchase> UserPurchases { get; set; }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
             modelBuilder.Entity<SampleData>()
                 .Property(x => x.Id)
                 .ValueGeneratedOnAdd();
+
+            modelBuilder.Entity<SampleData>()
+                .Property(x => x.Price)
+                .HasColumnType("decimal(18,2)");
 
             base.OnModelCreating(modelBuilder);
         }
